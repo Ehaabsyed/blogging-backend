@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .user-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .user-card {
+            background-color: #1f1f1f;
+            border-radius: 12px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .user-card:hover {
+            transform: scale(1.05);
+        }
+
+        .user-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .username {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #90caf9;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/home">back</a>
+    <h2 style="text-align:center; font-size: 40px;">Users List</h2>
+    <div class="user-container">
+       <% users.forEach(user => { %>
+         <div class="user-card">
+            <div class="email"><%= user.email  %></div>
+            <div class="username"><%= user.username  %></div>
+        </div>
+      <% }); %>
+
+    </div>
+
+</body>
+
+
+</html>

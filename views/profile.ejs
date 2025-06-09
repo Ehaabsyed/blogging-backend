@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Dark Theme</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            width: auto;
+            background-color: #0f0f0f;
+            color: #f5f5f5;
+            display: flex;
+            position: relative;
+            align-items: center;
+            padding: 2rem;
+            flex-direction: column;
+        }
+
+        .back {
+            position: absolute;
+            color: #1e40af;
+            left: 20px;
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        .photo {
+            color: #1e40af;
+            text-decoration: none;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 500px;
+            margin-top: 60px;
+        }
+
+        .profile-container img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00bcd4;
+            margin-bottom: 10px;
+            background-position: center;
+        }
+
+        .profile-container h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-container .username {
+            font-size: 1.1rem;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-container .email {
+            background-color: #2c2c2c;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+
+        .blog-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .blog {
+            background-color: #1f1f1f;
+            min-width: 500px;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .blog h3 {
+            margin-top: 0;
+            color: #90caf9;
+        }
+
+        .blog p {
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .blog time {
+            font-size: 0.9em;
+            color: #999;
+            display: block;
+        }
+
+
+
+        .blog h4 {
+            margin-top: 0;
+            color: #90caf9;
+        }
+
+        .features {
+            display: flex;
+            gap: 15px;
+        }
+
+        .features a {
+            text-decoration: none;
+        }
+         #content {
+            line-height: 1.4;
+            color: #ddd;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: 2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/home" class="back">Back</a>
+    <div class="profile-container">
+        <img style="background-position: center;" src="/img/profile/<%= user.image %>" alt="User Image" />
+        <a style="color: #2a52d6; cursor: pointer; text-decoration: none;" href="/upload">Upload your profile pic</a>
+        <h1>
+            <%= user.name %>
+        </h1>
+        <p class="username">@<%= user.username %>
+        </p>
+        <p class="email">
+            <%= user.email %>
+        </p>
+    </div>
+
+    <h2 style="margin-top: 15px; color: #ffffff;">Your post</h2>
+
+    <div class="blog-section">
+        <% user.posts.reverse().forEach(post=> {%>
+            <div class="blog">
+                <%= user.username %>
+                    <h3>
+                        <%= post.title %>
+                    </h3>
+
+                    <p id="content">
+                        <%= post.content %>
+                    </p>
+                    <time datetime="2025-05-01">
+                        <%= post.date %>
+                    </time>
+                    <div class="features">
+                        <a href="/deletepost/<%= post._id %>" style="color: #b91c1c;">delete</a>
+                        <a href="/edit/<%= post._id %>" style="color: #64646d;">edit</a>
+                    </div>
+            </div>
+            <%}); %>
+
+
+    </div>
+
+</body>
+
+</html>

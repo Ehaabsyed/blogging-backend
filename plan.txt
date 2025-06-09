@@ -1,0 +1,7 @@
+create index page
+login setup
+signup setup
+profile page
+home page
+write a blogs
+add blogs
