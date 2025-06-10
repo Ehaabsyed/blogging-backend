@@ -9,6 +9,7 @@ const upload = require("./config/multerconfig");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 const { log } = require("console");
+const post = require("./modules/post");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -29,7 +30,7 @@ app.post("/login", async (req, res) => {
   let { email, password } = req.body;
   let blogs = await postSchema.find();
   let user = await userModel.findOne({ email });
-  console.log(user.image);
+  // console.log(user.image);
 
   if (!user) {
     return res.status(400).json({ error: "No accounts found" });
@@ -143,6 +144,8 @@ app.get("/home", isLoggedIn, async (req, res) => {
   let blogs = await postSchema.find();
   let data = req.user;
   let user = await userModel.findOne({ email: data.email });
+  console.log(user.image);
+  
   res.render("home", { blogs, user });
 });
 //like and unlike

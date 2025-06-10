@@ -7,6 +7,10 @@ const PostSchema=mongoose.Schema({
         type:Date,
         default:Date.now
     },
+    image:{
+        type:String,
+        default:"default.webp"
+    },
     title:String,
     content:String,
     likes:[{
