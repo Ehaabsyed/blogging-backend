@@ -82,25 +82,34 @@
         .signup a:hover {
             text-decoration: underline;
         }
+
+        @media only screen and (max-width: 600px) {
+            .login-container{
+                width: 70%;
+                margin-top: 60px;
+            }
+        }
     </style>
-  
+
 </head>
 
 <body>
-   <div style=" position: relative;display: flex; flex-direction: column; justify-content: center;
-   align-items: center;"> <h1 style="font-size: 50px; margin-bottom: 0;">ScriptSphere</h1>
-    <p style="font-size: 40px; color: #0077cc; font-weight: 900; margin-bottom: 0;">write some blogs</p></div>
+    <div style=" position: relative;display: flex; flex-direction: column; justify-content: center;
+   align-items: center;">
+        <h1 style="font-size: 50px; margin-bottom: 0;">ScriptSphere</h1>
+        <p style="font-size: 40px; color: #0077cc; font-weight: 900; margin-bottom: 0;">write some blogs</p>
+    </div>
     <div class="login-container">
         <h2>Login</h2>
         <form action="/login" method="post">
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" name="email"  />
+                <input type="email" id="email" name="email" />
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password"  />
+                <input type="password" id="password" name="password" />
             </div>
 
             <input type="submit" value="Login" />

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Write Blog</title>
   <style>
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -18,24 +20,28 @@
       align-items: center;
       height: 100vh;
     }
+
     .container {
       width: 100%;
       max-width: 700px;
       padding: 30px;
       background-color: #1e1e1e;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
+
     h1 {
       text-align: center;
       margin-bottom: 30px;
       color: #ffffff;
     }
+
     label {
       display: block;
       margin: 15px 0 5px;
       font-weight: bold;
     }
+
     input[type="text"],
     textarea {
       width: 100%;
@@ -46,6 +52,7 @@
       color: #f1f1f1;
       resize: vertical;
     }
+
     input[type="submit"] {
       width: 100%;
       padding: 12px;
@@ -57,25 +64,38 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     input[type="submit"]:hover {
       background-color: #1e40af;
     }
+    @media only screen and (max-width: 600px) {
+            body{
+              align-items: start;
+            }
+            .container{
+              margin-top: 70px;
+              margin: 50px 12px;
+            }
+        }
   </style>
 </head>
-<body>
 
+<body style="position: relative; display: flex;justify-content: center;align-items: center;">
+  <a style="color: #2a52d6; font-size: 25px; cursor: pointer; text-decoration: none; position: absolute; left: 20px; top: 30px;" href="/home">Back</a>
   <div class="container">
+
     <h1>Write a Blog Post</h1>
     <form action="/submit-blog" method="POST">
       <label for="title">Blog Title</label>
       <input type="text" id="title" name="title" required />
 
       <label for="content">Content</label>
-      <textarea id="content" name="content" rows="10"  required></textarea>
+      <textarea id="content" name="content" rows="10" required></textarea>
 
       <input type="submit" value="Submit" />
     </form>
   </div>
 
 </body>
+
 </html>

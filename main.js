@@ -169,6 +169,8 @@ app.post("/upload", upload.single("image"), isLoggedIn, async (req, res) => {
   let user = await userModel.findOne({ email: req.user.email });
   user.image = req.file.filename;
   await user.save();
+  console.log(user);
+  
   res.redirect("/profile");
 });
 

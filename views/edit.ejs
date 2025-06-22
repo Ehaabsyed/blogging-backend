@@ -60,10 +60,12 @@
     input[type="submit"]:hover {
       background-color: #1e40af;
     }
+     @media only screen and (max-width: 600px) {
+      body{padding: 0px 12px;}
+     }
   </style>
 </head>
-<body>
-
+<body style="position: relative; display: flex;justify-content: center;align-items: center;"><a style="color: #2a52d6; font-size: 25px; cursor: pointer; text-decoration: none; position: absolute; left: 20px; top: 30px;" href="/profile">Back</a>
   <div class="container">
     <h1>Update your post</h1>
     <form action="/update/<%= post._id %>" method="POST">
